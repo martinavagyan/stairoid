@@ -80,8 +80,9 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
-public/
+# react / gatsby
+# Puts public into version control
+# public/
 
 # vuepress build output
 .vuepress/dist
@@ -360,5 +361,7 @@ lint/tmp/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+.idea
 
 # End of https://www.gitignore.io/api/node,react,reactnative,visualstudiocode
