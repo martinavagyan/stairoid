@@ -10,7 +10,7 @@ class App extends Component {
 
    componentDidMount() {
        // TODO Replace with api call to all the logs
-        fetch('http://jsonplaceholder.typicode.com/users')
+        fetch('https://jsonplaceholder.typicode.com/users')
             .then(res => res.json())
             .then((data) => {
                 this.setState({ logs: data })
