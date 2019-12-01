@@ -7,10 +7,9 @@ class DbService {
   }
 
   public static connect() {
-    console.debug(DbService.getUri());
     mongoose.connect(DbService.getUri(), {
-      useMongoClient: true,
-      promiseLibrary: global.Promise,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
   }
 }
