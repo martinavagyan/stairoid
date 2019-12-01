@@ -1,5 +1,4 @@
-import * as mongoose from 'mongoose';
-import {Schema, Document} from 'mongoose';
+import {Schema, Document, model} from 'mongoose';
 
 export interface ITest {
     name: string;
@@ -13,9 +12,8 @@ const TestSchema: Schema = new Schema({
     type: Number,
 });
 
-export interface ITestModel extends ITest, Document {
-}
+export interface ITestModel extends ITest, Document {};
 
-const TestModel = mongoose.model<ITestModel>('Test', TestSchema);
+const TestModel = model<ITestModel>('Test', TestSchema);
 
 export default TestModel;
