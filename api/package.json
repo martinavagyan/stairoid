@@ -4,14 +4,14 @@
   "description": "Minimal boilerplate for mean architecture using ts",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && set DEBUG=express:* && node build/server.js",
-    "start:cloud": "tsc && NODE_ENV=production node build/server.js",
+    "start": "tsc && set DEBUG=express:* && node build/Main.js",
+    "start:cloud": "tsc && NODE_ENV=production node build/Main.js",
     "start:heroku": "npm run start:cloud",
     "dev": "nodemon --exec npm start",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
-  "author": "",
+  "author": "Martin Avagyan",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.17.5",

@@ -3,21 +3,31 @@ import * as cookieParser from "cookie-parser";
 import * as bodyParser from 'body-parser';
 import * as morgan from "morgan";
 import * as Dontenv from 'dotenv';
-import RouterService from './api/router/Router.Service';
+import Router from './api/router';
 import MongooseService from './api/datasources/Mongoose.Service';
 
-Dontenv.config();
+export default class Server {
+  public static boot() {
+    Dontenv.config();
 
-const API = express();
-const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3000;
+    const API = Server.startExpressApi();
 
-API.use(morgan('dev'));
-API.use(cookieParser());
-API.use(bodyParser.urlencoded({ extended: true }));
-API.use(bodyParser.json());
+    MongooseService.connect();
+    Router.connect(API);
+    
+    API.listen(PORT);
+    console.info('RESTful API server started on: ' + PORT);
+    return API;
+  }  
 
-MongooseService.connect();
-RouterService.connect(API);
+  private static startExpressApi() {
+    const API = express();
+    API.use(morgan('dev'));
+    API.use(cookieParser());
+    API.use(bodyParser.urlencoded({ extended: true }));
+    API.use(bodyParser.json());
+    return API;
+  }
 
-API.listen(PORT);
-console.info('RESTful API server started on: ' + PORT);
+}

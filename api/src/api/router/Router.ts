@@ -1,7 +1,7 @@
 import {TestRouter} from '../endpoints/test';
 import {LogsRouter} from '../endpoints/logs';
 
-class RoutesService {
+class Router {
     public static connect(api: any) {
         TestRouter.connect(api);
         LogsRouter.connect(api);
@@ -14,4 +14,4 @@ class RoutesService {
     }
 };
 
-export default RoutesService;
+export default Router;
