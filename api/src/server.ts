@@ -2,10 +2,9 @@ import * as express from 'express';
 import * as cookieParser from "cookie-parser";
 import * as bodyParser from 'body-parser';
 import * as morgan from "morgan";
-import RoutesService from './api/routes/routes-service';
+import RouterService from './api/router/Router.Service';
 import * as Dontenv from 'dotenv';
-import DbService from './services/db-service';
-
+import MongooseService from './api/datasources/Mongoose.Service';
 
 Dontenv.config();
 
@@ -17,8 +16,8 @@ API.use(cookieParser());
 API.use(bodyParser.urlencoded({ extended: true }));
 API.use(bodyParser.json());
 
-DbService.connect();
-RoutesService.connect(API);
+MongooseService.connect();
+RouterService.connect(API);
 
 API.listen(PORT);
 console.info('RESTful API server started on: ' + PORT);

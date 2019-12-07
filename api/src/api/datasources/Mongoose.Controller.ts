@@ -1,5 +1,4 @@
-export default class Base<T extends any> {
-    protected sortDir: number = 1;
+export default class MongooseController<T extends any> {
     protected model: T;
 
     constructor(model: T) {
