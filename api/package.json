@@ -9,8 +9,7 @@
     "start:heroku": "npm run start:cloud",
     "dev": "nodemon --exec npm start",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "./node_modules/.bin/mocha --reporter spec",
-    "transpile": "tsc"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "author": "",
   "license": "ISC",
